@@ -1,6 +1,7 @@
 package net.Rick.advancedtech;
 
 import com.mojang.logging.LogUtils;
+import net.Rick.advancedtech.item.Moditems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,12 +13,14 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(advancedtech.MOD_ID)
-public class advancedtech {
+public class    advancedtech {
     public static final String MOD_ID = "advancedtech";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public advancedtech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        Moditems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
